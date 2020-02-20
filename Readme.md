@@ -2,20 +2,27 @@
 
 Ce projet correspond au premier TP réalisé lors du cours de programation avancée objet en Master 1 MIAGE.
 
-#Dans le zip :
+## Dans le zip :
 
 * la documentation
 * le fichier binaire et les sources
 
 Tout est dans le zip.
 
-#Auteur
+## Auteur
 
 Anne-Laure CHARLES
 
-#Licence
+## Licence
 
 Ce projet n'est pas distribué sous une licence particulière.
 
-#Dépôt
+## Lien GitHub
 
+### HTTPS
+
+git clone https://github.com/AnneLaure57/baignoire.git
+
+### SSH
+
+git clone git@github.com:AnneLaure57/baignoire.git
