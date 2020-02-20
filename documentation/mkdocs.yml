@@ -1,0 +1,14 @@
+site_name: Gestion du volume d'une baignoire 
+site_description: TP2 POA
+site_author: CHARLES Anne-Laure
+use_directory_urls: false
+
+nav:
+    - Accueil: index.md
+    - Installation: installation.md
+    - Manuel d'utilisiation: manuelUt.md
+    - Manuel technique: manuelTech.md
+    - Licences: licences.md
+    - Tests: tests.md
+
+theme: readthedocs

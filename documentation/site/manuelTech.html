@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="CHARLES Anne-Laure">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Manuel technique - Gestion du volume d'une baignoire</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Manuel technique";
+    var mkdocs_page_input_path = "manuelTech.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Gestion du volume d'une baignoire</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Accueil</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="installation.html">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="manuelUt.html">Manuel d'utilisiation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="manuelTech.html">Manuel technique</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#la-documentation-technique">La documentation technique:</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#les-outils">Les outils :</a></li>
+        
+            <li><a class="toctree-l3" href="#le-diagramme-de-classe">Le diagramme de classe :</a></li>
+        
+            <li><a class="toctree-l3" href="#les-classes">Les classes :</a></li>
+        
+            <li><a class="toctree-l3" href="#baignoirefxml">Baignoire.fxml</a></li>
+        
+            <li><a class="toctree-l3" href="#le-pom-xml">Le POM XML</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="licences.html">Licences</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="tests.html">Tests</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Gestion du volume d'une baignoire</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Manuel technique</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="la-documentation-technique">La documentation technique:</h1>
+<h2 id="les-outils">Les outils :</h2>
+<p></br> Pour ce projet j'ai travaillé avec les outils suivants :</p>
+<ul>
+<li>Scene Builder :outil permettant de réaliser des interfaces JavaFX (version 8).</li>
+<li>Eclipse : IDE pour la programmation Java (jdk 1.8_0241).</li>
+<li>Maven &amp; les plugins nécessaires pour générer les fichiers archives et le fichier binaire (inclus avec cette documentation).</li>
+<li>ObjeAid UML Diagramm : est un outil permettant de créer des diagrammes à partir d'Eclipse.</li>
+</ul>
+<h2 id="le-diagramme-de-classe">Le diagramme de classe :</h2>
+<p></br><img alt="Image not found" src="images/diagrammeClasse.png" title="applciation" /></p>
+<h3 id="explications">Explications</h3>
+<p>Dans le diagramme, il y a les relations suivantes :</p>
+<ul>
+<li>Entre App et l'interface : relation de type access, car la classe permet d'afficher et d'accéder à l'interface graphique,</li>
+<li>Entre App et le package Application : relation de type import, car c'est grâce à ce package que l'on peut initialiser la fenêtre et la lancer,</li>
+<li>Entre App et Controller : une simple association,</li>
+<li>Controller et Log : relation de type use, car la classe Controller ce que contient la classe Log (Instance de Log dans la classe Controller),</li>
+<li>Controller et Session : relation de type use car utilise List<Session>,</li>
+<li>Controller et InfosPerso : relation de type use car utilise List<InfosPerso>, </li>
+<li>Entre Log et Session : relation de type association, un ou plusieurs logs correspondent à une seule et même session,</li>
+<li>Entre Session et InfosPerso : relation de type association, un utilisateur peut compter 0 ou plusieurs sessions (0 car il se peut qu'en fonction des dates, l'utilisateur ne se soit pas connecté).</li>
+</ul>
+<h2 id="les-classes">Les classes :</h2>
+<p>Pour ce TP, j'ai travaillé avec l'interface <em>Callable</em> permettant de faire du multithread.</p>
+<h3 id="appjava">App.java</h3>
+<p></br> Cette classe est la classe principale permettant de lancer l'interface (Baignoire.fxml). Il y a deux méthodes :</p>
+<ul>
+<li>
+<p>start() : permettant de charger le fichier <em>.fxml</em>, de modifier le titre de la fenêtre (setTitle()), de spécifier le scène qui va être utilisé (setScene()), d'afficher la scène (commande show()).</p>
+</li>
+<li>
+<p>main() : qui permet de charger la fenêtre avec la commande <em>launch(args)</em> .</p>
+</li>
+</ul>
+<h3 id="controllerjava">Controller.java</h3>
+<ul>
+<li>
+<p>initialize() :  est la fonction qui s'exécute lorsque la fenètre FXML se créée.</p>
+</li>
+<li>
+<p>start(ActionEvent e) :  est la fonction qui s'exécute lorsque l'on clique sur le bouton "Démarrer". On crée une nouvelle instance de la classe Baignoire nommée baignoire. À l'aide de cette objet Baignoire, on va créer 3 threads qui vont prendre cet objet en paramètres (les paramètres de la baignoire sont récupérées via les sliders) et à l'aide de l'interface CompletionService, on va exécuter ces threads en différer et récupérer leurs résultats.</p>
+</li>
+<li>
+<p>remplir() (FXML) : est la fonction qui permet de modifier la quantité d'eau fuitée à l'aide du slider dédiée.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
+</li>
+<li>
+<p>vider() (FXML) : est la fonction qui permet de modifier la quantité d'eau versée à l'aide du slider dédiée.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
+</li>
+</ul>
+<h3 id="baignoirejava">Baignoire.java</h3>
+<p>La classe <strong>Baignoire</strong> contient 6 paramètres :
+    * volume (float),
+    * qteEauTot (float),
+    * qteVerse (float),
+    * qteFuite (float),
+    * semaphore (classe Semaphore),
+    * un élément log (classe Logger) pour les messages d'erreur.</p>
+<p>On y a crée le constructeur, les getters et setters ainsi que la méthode toString();</p>
+<ul>
+<li>
+<p>estVide() : retourne <strong>true</strong> si la baignoire est vide.</p>
+</li>
+<li>
+<p>estPlein() : retourne <strong>true</strong> si la baignoire est vide.</p>
+</li>
+<li>
+<p>remplir() : est une fonction qui permet de remplir la baignoire en vérifiant si la quantité d'eau actuelle de la baignoire additionnée à la quantité versée est inférieure ou égale au volume (le volume étant la quantité à atteindre pour que la baignoire soit remplie) alors on incrémente la quantité d'eau.</p>
+</li>
+<li>
+<p>vider() : est une fonction qui permet de vider la baignoire en vérifiant si la quantité d'eau actuelle de la baignoire additionnée à la quantité fuitée est inférieure ou égale à 0 (on ne peut pas avoir un volume d'eau négatif) alors on soustrait la quantité d'eau.</p>
+</li>
+</ul>
+<h3 id="tableaudebordjava">TableauDeBord.java</h3>
+<ul>
+<li>
+<p>call() : est une méthode appelée afin d'éxécuter une tâche asynchrone, elle retourne un résultat, en cas d'échec de la tâche, elle renvoie une exception (throws Exception).
+Dans la classe TableauDeBord, on calcule dans la méthode call le temps que la baignoire met à se remplir et la barre de progression montre l'évolution du volume de l'eau dans la baignoire.</p>
+</li>
+<li>
+<p>convertDuree() : permet retourner la durée calculée en minutes et secondes.</p>
+</li>
+</ul>
+<h3 id="remplissagebaignoirejava">RemplissageBaignoire.java</h3>
+<ul>
+<li>call () <strong>même fonctionnement que expliquer plus haut</strong>, elle boucle tant que la baignoire ne s'est pas remplie totalement et remplira la baignoire en fonction de la quantité saisie avec le slider.</li>
+</ul>
+<h3 id="vidagebaignoirejava">VidageBaignoire.java</h3>
+<ul>
+<li>call () <strong>même fonctionnement que expliquer plus haut</strong>, elle boucle tant que la baignoire ne s'est pas remplie totalement et videra la baignoire en fonction de la quantité saisie avec le slider.</li>
+</ul>
+<h2 id="baignoirefxml">Baignoire.fxml</h2>
+<p></br> Contient tous les éléments de la fenêtre (progressBar, Button, Text, Slider), avec leurs id fxml, leurs positions, les noms et les actions (onAction pour le bouton <em>Démarrer</em>).</p>
+<h2 id="le-pom-xml">Le POM XML</h2>
+<p></br> Le pom.xml contient le modèle objet pour ce projet. Il contient toutes les informations importantes sur ce projet. Il permet de référencer le groupId, artifactId, version, nom, description, etc. Mais également d'y ajouter des plugins et dépendances pour compiler les ressources du projet permettant d'obtenir le <em>.bat</em> ou encore la possibilité de générer des archives (.zip,.rar) avec un <em>.Jar</em>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="licences.html" class="btn btn-neutral float-right" title="Licences">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="manuelUt.html" class="btn btn-neutral" title="Manuel d'utilisiation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="manuelUt.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="licences.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

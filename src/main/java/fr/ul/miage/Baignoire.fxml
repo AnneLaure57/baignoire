@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ul.miage.Controller">
+	<children>
+      <Pane prefHeight="360.0" prefWidth="800.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="start" layoutX="686.0" layoutY="298.0" mnemonicParsing="false" onAction="#start" prefHeight="48.0" prefWidth="92.0" text="Démarrer" />
+            <ProgressBar fx:id="progB" layoutX="51.0" layoutY="222.0" prefHeight="18.0" prefWidth="699.0" progress="0.0" />
+            <Slider fx:id="vider" layoutX="97.0" layoutY="153.0" max="50.0" onMouseReleased="#vider" prefHeight="37.0" prefWidth="162.0" showTickLabels="true" showTickMarks="true" />
+            <Slider fx:id="remplir" layoutX="492.0" layoutY="153.0" max="50.0" onMouseReleased="#remplir" prefHeight="37.0" prefWidth="162.0" showTickLabels="true" showTickMarks="true" />
+            <Text layoutX="108.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saisir le débit de fuite :">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="480.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saisir le débit de remplissage :">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Slider fx:id="vol" layoutX="227.0" layoutY="45.0" max="500.0" min="50.0" prefHeight="14.0" prefWidth="530.0" showTickLabels="true" showTickMarks="true" />
+            <Text layoutX="21.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume totale de la baignoire :">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text fx:id="time" layoutX="135.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="623.8769513070583">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="res" layoutX="50.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="81.13475880026817">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtR" layoutX="680.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="txtV" layoutX="260.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
