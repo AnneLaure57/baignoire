@@ -12,7 +12,7 @@ public class VidageBaignoire implements Callable<Float>{
 	}
 
 	public Float call() throws Exception {
-		while(!this.baignoire.estPlein() && !this.baignoire.estVide())
+		while(!this.baignoire.estPlein())
 		{
 			Thread.sleep(10);
 			baignoire.vider();

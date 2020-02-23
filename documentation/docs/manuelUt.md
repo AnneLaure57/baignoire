@@ -12,7 +12,7 @@ Le premier slider (barre graduée) permet de définir le volume initiale contenu
 
 ### 2) Lancement du test :
 
-Vous pouvez choisir d'initier le taux de fuite et le taux de remplissage avant de cliquer sur le bouton démarrer.
+Vous pouvez choisir d'initier le taux de fuite et le taux de remplissage avant de cliquer sur le bouton démarrer ou après.
 
 ####Jauge de remplissage :
 
@@ -36,9 +36,18 @@ Vous pouvez vous amusez à régler le débit d'eau entrant (remplissage) et le d
 
 ![Image not found](images/interface7.png "interface")
 
-</br>Un fois terminée, vous aurez un message pour vous indiquer en combien de minutes et de secondes la baignoire s'est remplie.
+</br>Un fois terminée, vous aurez un message pour vous indiquer en combien de minutes et de secondes la baignoire s'est remplie. Vous pouvez alors réessayer avec un autre volume, car le bouton *Démarrer* et le Slider pour le volume de la baignoire ne sont plus grisées une fois la manipulation terminée.
 
 ### Exemple :
 
 ![Image not found](images/interface8.png "interface")
 
+* Remarque : vous pouvez voir la quantité d'eau de Fuite et de Remplissage qui sont affichés
+
+#### Quantité de fuite d'eau dans la baignoire :
+
+![Image not found](images/Exemple.png "interface")
+
+#### Quantité de remplissage d'eau dans la baignoire :
+
+![Image not found](images/Exemple2.png "interface")

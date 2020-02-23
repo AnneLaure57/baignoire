@@ -17,9 +17,14 @@
 
 Dans le diagramme, il y a les relations suivantes :
 
-* Entre App et l'interface : relation de type access, car la classe permet d'afficher et d'accéder à l'interface graphique,
-* Entre App et le package Application : relation de type import, car c'est grâce à ce package que l'on peut initialiser la fenêtre et la lancer,
-* Entre App et Controller : une simple association,
+* Les classes tableauDeBord, VidageBaignoire et RemplissageBaignoire implémentent l'interface Callable,
+
+* Controller et Baignoire : relation associative entre les deux classes (Instance de Baignoire dans la classe Controller),
+
+* VidageBaignoire et Baignoire : relation associative entre les deux classes (utilisée dans le constructeur),
+
+* RemplissageBaignoire et Baignoire : relation associative entre les deux classes (utilisée dans le constructeur),
+
 * Controller et Log : relation de type use, car la classe Controller ce que contient la classe Log (Instance de Log dans la classe Controller),
 * Controller et Session : relation de type use car utilise List<Session>,
 * Controller et InfosPerso : relation de type use car utilise List<InfosPerso>, 
@@ -35,7 +40,7 @@ Pour ce TP, j'ai travaillé avec l'interface *Callable* permettant de faire du m
 
 </br> Cette classe est la classe principale permettant de lancer l'interface (Baignoire.fxml). Il y a deux méthodes :
 
-* start() : permettant de charger le fichier *.fxml*, de modifier le titre de la fenêtre (setTitle()), de spécifier le scène qui va être utilisé (setScene()), d'afficher la scène (commande show()).
+* start() : permettant de charger le fichier *.fxml*, de modifier le titre de la fenêtre (setTitle()), de spécifier le scène qui va être utilisé (setScene()), d'afficher la scène (commande show()). La taille de la fenêtre n'est pas modifiable (avec setResizable()), ceci évitant de modifier la taille de la fenêtre et l'affichage a été réalisé de la manière la plus simple possible afin de pouvoir l'afficher sur tous les types d'écran (15 pouces, 17 pouces, 19 pouces et inférieur).
 
 * main() : qui permet de charger la fenêtre avec la commande *launch(args)* .
 
@@ -62,8 +67,6 @@ La classe **Baignoire** contient 6 paramètres :
 
 On y a crée le constructeur, les getters et setters ainsi que la méthode toString();
 
-* estVide() : retourne **true** si la baignoire est vide.
-
 * estPlein() : retourne **true** si la baignoire est vide.
 
 * remplir() : est une fonction qui permet de remplir la baignoire en vérifiant si la quantité d'eau actuelle de la baignoire additionnée à la quantité versée est inférieure ou égale au volume (le volume étant la quantité à atteindre pour que la baignoire soit remplie) alors on incrémente la quantité d'eau.
@@ -85,6 +88,8 @@ Dans la classe TableauDeBord, on calcule dans la méthode call le temps que la b
 
 * call () **même fonctionnement que expliquer plus haut**, elle boucle tant que la baignoire ne s'est pas remplie totalement et videra la baignoire en fonction de la quantité saisie avec le slider.
 
+</br>Afin de pouvoir mettre à jour les résultats et de pouvoir les visualiser sur l'interface, on utilise la méthode *sleep()*. Tant que la baignoire n'est pas pas pleine, on peut vider la baignoire en appelant la méthode *vider()*.
+
 ## Baignoire.fxml 
 
 </br> Contient tous les éléments de la fenêtre (progressBar, Button, Text, Slider), avec leurs id fxml, leurs positions, les noms et les actions (onAction pour le bouton *Démarrer*).
@@ -92,3 +97,5 @@ Dans la classe TableauDeBord, on calcule dans la méthode call le temps que la b
 ## Le POM XML 
 
 </br> Le pom.xml contient le modèle objet pour ce projet. Il contient toutes les informations importantes sur ce projet. Il permet de référencer le groupId, artifactId, version, nom, description, etc. Mais également d'y ajouter des plugins et dépendances pour compiler les ressources du projet permettant d'obtenir le *.bat* ou encore la possibilité de générer des archives (.zip,.rar) avec un *.Jar*.
+
+* Dans le POM.XML, l'encondage est définie en UTF-8.

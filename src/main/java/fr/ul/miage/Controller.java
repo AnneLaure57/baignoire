@@ -73,7 +73,7 @@ public class Controller {
 	@FXML
 	void vider() throws InterruptedException
 	{
-		if(this.baignoire != null && !this.baignoire.estPlein() || !this.baignoire.estVide()) {
+		if(this.baignoire != null && !this.baignoire.estPlein()) {
 			this.baignoire.setQteFuite((float)vider.getValue());
 			txtV.setText(String.valueOf((float)vider.getValue()));
 		}

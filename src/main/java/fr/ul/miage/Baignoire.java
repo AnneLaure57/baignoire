@@ -45,14 +45,6 @@ public class Baignoire {
 		return qteEauTot;
 	}
 	
-	public boolean estVide() {
-		if(this.volume == 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	public boolean estPlein() {
 		if(this.volume == this.getQteEauTot()) {
 			return true;
@@ -104,7 +96,7 @@ public class Baignoire {
 				return;
 			}	
 			if(this.qteEauTot + (this.qteVerse/100) <= this.volume) {
-				this.qteEauTot += (this.qteVerse/100);
+				this.qteEauTot = this.qteEauTot + (this.qteVerse/100);
 			} else {
 				this.setQteEauTot(this.volume);
 			}
@@ -123,7 +115,7 @@ public class Baignoire {
 				return;
 			}
 			if(this.qteEauTot - (this.qteFuite/100) >= 0) {
-				this.qteEauTot -= (this.qteFuite/100);
+				this.qteEauTot = this.qteEauTot - (this.qteFuite/100);
 			} else {
 				this.setQteEauTot(0);
 			}
