@@ -60,6 +60,7 @@ public class Controller {
 	{
 		baignoire = new Baignoire((float) vol.getValue(), 0, (float)vider.getValue(), (float)remplir.getValue());
 		
+		//permet d'afficher au moment, ou on clique sur démarrer les qte
 		txtV.setText(String.valueOf((float)vider.getValue()));
 		txtR.setText(String.valueOf((float)remplir.getValue()));
 		

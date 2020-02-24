@@ -29,7 +29,9 @@ public class Baignoire {
 		try {
 			semaphore.acquire();
 			this.volume = volume;
+			//Si la quantité d'eau totale est strictement supérieure à celui du vol
 			if(this.getQteEauTot() > volume) {
+				// le 
 				this.qteEauTot = volume;
 			}
 			

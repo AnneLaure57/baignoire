@@ -18,6 +18,7 @@ public class App extends Application{
 		}
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("TP2 - Programmation Objet Avancée");
+		//permet de ne pas modifier la taille de la fenêtre
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();

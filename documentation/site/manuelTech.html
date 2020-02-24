@@ -144,14 +144,27 @@
 <h3 id="explications">Explications</h3>
 <p>Dans le diagramme, il y a les relations suivantes :</p>
 <ul>
-<li>Entre App et l'interface : relation de type access, car la classe permet d'afficher et d'accéder à l'interface graphique,</li>
-<li>Entre App et le package Application : relation de type import, car c'est grâce à ce package que l'on peut initialiser la fenêtre et la lancer,</li>
-<li>Entre App et Controller : une simple association,</li>
-<li>Controller et Log : relation de type use, car la classe Controller ce que contient la classe Log (Instance de Log dans la classe Controller),</li>
-<li>Controller et Session : relation de type use car utilise List<Session>,</li>
-<li>Controller et InfosPerso : relation de type use car utilise List<InfosPerso>, </li>
-<li>Entre Log et Session : relation de type association, un ou plusieurs logs correspondent à une seule et même session,</li>
-<li>Entre Session et InfosPerso : relation de type association, un utilisateur peut compter 0 ou plusieurs sessions (0 car il se peut qu'en fonction des dates, l'utilisateur ne se soit pas connecté).</li>
+<li>
+<p>Les classes tableauDeBord, VidageBaignoire et RemplissageBaignoire implémentent l'interface Callable,</p>
+</li>
+<li>
+<p>Controller et Baignoire : relation associative entre les deux classes (Instance de Baignoire dans la classe Controller),</p>
+</li>
+<li>
+<p>VidageBaignoire et Baignoire : relation associative entre les deux classes (utilisée dans le constructeur),</p>
+</li>
+<li>
+<p>RemplissageBaignoire et Baignoire : relation associative entre les deux classes (utilisée dans le constructeur),</p>
+</li>
+<li>
+<p>RemplissageBaignoire et Baignoire : relation associative entre les deux classes (utilisée l'objet de la bagnoire afin de simuler l'état de la baignoire),</p>
+</li>
+<li>
+<p>Controller et Log : relation de type use, car la classe Controller ce que contient la classe Log (Instance de Log dans la classe Controller),</p>
+</li>
+<li>
+<p>Relations de dépendances entre Controller et les classes TableauDeBord, VidageBaignoire, RemplissageBaignoire.</p>
+</li>
 </ul>
 <h2 id="les-classes">Les classes :</h2>
 <p>Pour ce TP, j'ai travaillé avec l'interface <em>Callable</em> permettant de faire du multithread.</p>
@@ -159,25 +172,10 @@
 <p></br> Cette classe est la classe principale permettant de lancer l'interface (Baignoire.fxml). Il y a deux méthodes :</p>
 <ul>
 <li>
-<p>start() : permettant de charger le fichier <em>.fxml</em>, de modifier le titre de la fenêtre (setTitle()), de spécifier le scène qui va être utilisé (setScene()), d'afficher la scène (commande show()).</p>
+<p>start() : permettant de charger le fichier <em>.fxml</em>, de modifier le titre de la fenêtre (setTitle()), de spécifier le scène qui va être utilisé (setScene()), d'afficher la scène (commande show()). La taille de la fenêtre n'est pas modifiable (avec setResizable()), ceci évitant de modifier la taille de la fenêtre et l'affichage a été réalisé de la manière la plus simple possible afin de pouvoir l'afficher sur tous les types d'écran (15 pouces, 17 pouces, 19 pouces et inférieur).</p>
 </li>
 <li>
 <p>main() : qui permet de charger la fenêtre avec la commande <em>launch(args)</em> .</p>
-</li>
-</ul>
-<h3 id="controllerjava">Controller.java</h3>
-<ul>
-<li>
-<p>initialize() :  est la fonction qui s'exécute lorsque la fenètre FXML se créée.</p>
-</li>
-<li>
-<p>start(ActionEvent e) :  est la fonction qui s'exécute lorsque l'on clique sur le bouton "Démarrer". On crée une nouvelle instance de la classe Baignoire nommée baignoire. À l'aide de cette objet Baignoire, on va créer 3 threads qui vont prendre cet objet en paramètres (les paramètres de la baignoire sont récupérées via les sliders) et à l'aide de l'interface CompletionService, on va exécuter ces threads en différer et récupérer leurs résultats.</p>
-</li>
-<li>
-<p>remplir() (FXML) : est la fonction qui permet de modifier la quantité d'eau fuitée à l'aide du slider dédiée.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
-</li>
-<li>
-<p>vider() (FXML) : est la fonction qui permet de modifier la quantité d'eau versée à l'aide du slider dédiée.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
 </li>
 </ul>
 <h3 id="baignoirejava">Baignoire.java</h3>
@@ -188,13 +186,11 @@
     * qteFuite (float),
     * semaphore (classe Semaphore),
     * un élément log (classe Logger) pour les messages d'erreur.</p>
+<p>Différence entre volume et qteEauTot, le volume est définie avec le premier slider, qui définit le volume à atteindre afin de remplir la baignoire, en d'autre termes, il s'agit du volume d'eau de la baignoire (ex : 250L). Tandis que la qteEauTot, correspond à la quantité d'eau se trouvant actuellement dans la baignoire qui varie en fonction de la quantité d'eau versée (qteVerse) et la quantité d'eau qui fuit (qteFuite).</p>
 <p>On y a crée le constructeur, les getters et setters ainsi que la méthode toString();</p>
 <ul>
 <li>
-<p>estVide() : retourne <strong>true</strong> si la baignoire est vide.</p>
-</li>
-<li>
-<p>estPlein() : retourne <strong>true</strong> si la baignoire est vide.</p>
+<p>estPlein() : retourne <strong>true</strong> si la baignoire est pleine, on vérifie si la quantité d'eau contenue dans la baignoire est égale au volume de la baignorie.</p>
 </li>
 <li>
 <p>remplir() : est une fonction qui permet de remplir la baignoire en vérifiant si la quantité d'eau actuelle de la baignoire additionnée à la quantité versée est inférieure ou égale au volume (le volume étant la quantité à atteindre pour que la baignoire soit remplie) alors on incrémente la quantité d'eau.</p>
@@ -203,7 +199,55 @@
 <p>vider() : est une fonction qui permet de vider la baignoire en vérifiant si la quantité d'eau actuelle de la baignoire additionnée à la quantité fuitée est inférieure ou égale à 0 (on ne peut pas avoir un volume d'eau négatif) alors on soustrait la quantité d'eau.</p>
 </li>
 </ul>
+<p><strong>Informations complémentaires :</strong></p>
+<ul>
+<li>acquire() : demande une ou plusieurs autorisations. Cette méthode est dites bloquante, c'est à dire, qu'elle ne rend la main que lorsque le nombre d'autorisations demandé est disponible, auquel cas, elle renvoie une exception <em>InterruptedException</em> si le thread est interrompu.</li>
+</ul>
+<p>release() : est une méthode qui permet de rendre une autorisation.</p>
+<ul>
+<li>Ces deux méthodes sont utilisés dans les setters <em>setVolume()</em>, <em>setQteVerse</em>, <em>setQteFuite</em>, afin de pouvoir modifier le volume de la baignoire et les quantités d'eau versée et de fuite.</li>
+</ul>
+<h3 id="controllerjava">Controller.java</h3>
+<ul>
+<li>
+<p>initialize() :  est la fonction qui s'exécute lorsque la fenètre FXML se créée. Lors de l'initialisation, on affiche le contenu des textes <em>time</em> et <em>res</em> avec la méthode <em>setDisable()</em> et on modifie le contenu avec la méthode <em>setText()</em>.</p>
+</li>
+<li>
+<p>start(ActionEvent e) :  est la fonction qui s'exécute lorsque l'on clique sur le bouton "Démarrer". On crée une nouvelle instance de la classe Baignoire nommée baignoire. À l'aide de cette objet Baignoire, on va créer 3 threads qui vont prendre cet objet en paramètre (les paramètres de la baignoire sont récupérées via les sliders) et à l'aide de l'interface CompletionService, on va exécuter ces threads en différer et récupérer leurs résultats.</p>
+</li>
+</ul>
+<p><strong>Informations complémentaires :</strong></p>
+<ul>
+<li>
+<p>Executor : cette interface décrit les fonctionnalités permettant l'éxécution différée de tâches implémentées sous Runnable.</p>
+<ul>
+<li>Par exemple :</li>
+</ul>
+<p><em>Executor executor = Executors.newFixedThreadPool(3);</em></p>
+</li>
+<li>
+<p>CompletionService<Float> : permet la gestion de la récupération des résultats de plusieurs tâches (threads) exécutées de manière asynchrone.</p>
+<ul>
+<li>Par exemple :</li>
+</ul>
+<p><em>CompletionService<Float> pool = new ExecutorCompletionService&lt;&gt;(executor);</em></p>
+</li>
+<li>
+<p>submit() avec l'interface (Callable<T> task) : ajouter la tâche dans la queue pour éxécution. La méthode renvoie un future qui permet d'obtenir les informations sur l'éxécution de la tâche.</p>
+<ul>
+<li>Par exemple :</li>
+</ul>
+<p><em>pool.submit(new RemplissageBaignoire(this.baignoire));</em></p>
+</li>
+<li>
+<p>remplir() (FXML) : est la fonction qui permet de modifier la quantité d'eau fuitée à l'aide du slider dédiée dans la baignoire, si la baignoire n'est pas null et qu'elle n'est pas déjà pleine.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
+</li>
+<li>
+<p>vider() (FXML) : est la fonction qui permet de modifier la quantité d'eau versée à l'aide du slider dédiée dans la baignoire, si la baignoire n'est pas null et qu'elle n'est pas déjà pleine.La quantité est affichée dans un texte à l'aide de la méthode <em>setText()</em>.</p>
+</li>
+</ul>
 <h3 id="tableaudebordjava">TableauDeBord.java</h3>
+<p>La classe <strong>TableauDeBord</strong></p>
 <ul>
 <li>
 <p>call() : est une méthode appelée afin d'éxécuter une tâche asynchrone, elle retourne un résultat, en cas d'échec de la tâche, elle renvoie une exception (throws Exception).
@@ -214,17 +258,23 @@ Dans la classe TableauDeBord, on calcule dans la méthode call le temps que la b
 </li>
 </ul>
 <h3 id="remplissagebaignoirejava">RemplissageBaignoire.java</h3>
+<p>La classe possède un constructeur avec en paramètre, un objet de la classe baignoire.</p>
 <ul>
-<li>call () <strong>même fonctionnement que expliquer plus haut</strong>, elle boucle tant que la baignoire ne s'est pas remplie totalement et remplira la baignoire en fonction de la quantité saisie avec le slider.</li>
+<li>call () <strong>même fonctionnement que expliquer plus haut</strong>, elle boucle tant que la baignoire ne s'est pas remplie totalement et remplira la baignoire en fonction de la quantité saisie avec le slider avec la méthode <em>remplir()</em> de la classe <em>Baignoire</em>. On utilise juste avant la méthode <em>sleep()</em> afin que le thread courant "dort" et qu'il n'utilise pas pendant la boucle while, le processeur pour ne rien faire.</li>
 </ul>
 <h3 id="vidagebaignoirejava">VidageBaignoire.java</h3>
+<p>La classe possède un constructeur avec en paramètre, un objet de la classe baignoire.</p>
 <ul>
 <li>call () <strong>même fonctionnement que expliquer plus haut</strong>, elle boucle tant que la baignoire ne s'est pas remplie totalement et videra la baignoire en fonction de la quantité saisie avec le slider.</li>
 </ul>
+<p></br>Afin de pouvoir mettre à jour les résultats et de pouvoir les visualiser sur l'interface, on utilise la méthode <em>sleep()</em>. Tant que la baignoire n'est pas pas pleine, on peut vider la baignoire en appelant la méthode <em>vider()</em> de la classe <em>Baignoire</em>. On utilise juste avant la méthode <em>sleep()</em> afin que le thread courant "dort" et qu'il n'utilise pas pendant la boucle while, le processeur pour ne rien faire.</p>
 <h2 id="baignoirefxml">Baignoire.fxml</h2>
 <p></br> Contient tous les éléments de la fenêtre (progressBar, Button, Text, Slider), avec leurs id fxml, leurs positions, les noms et les actions (onAction pour le bouton <em>Démarrer</em>).</p>
 <h2 id="le-pom-xml">Le POM XML</h2>
 <p></br> Le pom.xml contient le modèle objet pour ce projet. Il contient toutes les informations importantes sur ce projet. Il permet de référencer le groupId, artifactId, version, nom, description, etc. Mais également d'y ajouter des plugins et dépendances pour compiler les ressources du projet permettant d'obtenir le <em>.bat</em> ou encore la possibilité de générer des archives (.zip,.rar) avec un <em>.Jar</em>.</p>
+<ul>
+<li>Dans le POM.XML, l'encondage est définie en UTF-8.</li>
+</ul>
               
             </div>
           </div>
