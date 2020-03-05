@@ -269,11 +269,41 @@ Dans la classe TableauDeBord, on calcule dans la méthode call le temps que la b
 </ul>
 <p></br>Afin de pouvoir mettre à jour les résultats et de pouvoir les visualiser sur l'interface, on utilise la méthode <em>sleep()</em>. Tant que la baignoire n'est pas pas pleine, on peut vider la baignoire en appelant la méthode <em>vider()</em> de la classe <em>Baignoire</em>. On utilise juste avant la méthode <em>sleep()</em> afin que le thread courant "dort" et qu'il n'utilise pas pendant la boucle while, le processeur pour ne rien faire.</p>
 <h2 id="baignoirefxml">Baignoire.fxml</h2>
-<p></br> Contient tous les éléments de la fenêtre (progressBar, Button, Text, Slider), avec leurs id fxml, leurs positions, les noms et les actions (onAction pour le bouton <em>Démarrer</em>).</p>
+<p></br> Il s'agit d'une fenêtre <em>.fmxl</em> crée à partir du logiciel <strong>SceneBuilder</strong> depuis <strong>Eclipse</strong>.</p>
+<p></br><img alt="Image not found" src="images/scene.png" title="applciation" /></p>
+<p>Les différents éléments de l'interface :</p>
+<ul>
+<li>Button <code>start</code> : permet de lancer le remplissage de la baignoire.</li>
+<li>ProgressBar <code>progB</code> : barre de progression du remplissage de la baignoire.</li>
+<li>Slider <code>vol</code> : permet de définir le volume à remplir de la baignoire.</li>
+<li>Slider <code>vider</code> : permet de vider la baignoire (de définir la quantité d'eau à remplir dans la baignoire).</li>
+<li>Slider <code>remplir</code> : permet de remplir la baignoire (de définir la quantité d'eau à remplir dans la baignoire).</li>
+<li>Text <code>time</code> : permet d'avoir le chronomètre.</li>
+<li>Text <code>res</code> : permet d'avoir le chronomètre final (message résultat).</li>
+<li>Text <code>txtR</code> : permet d'avoir la quantité d'eau ajoutée.</li>
+<li>Text <code>txtV</code> : permet d'avoir la quantité d'eau retirée.</li>
+</ul>
 <h2 id="le-pom-xml">Le POM XML</h2>
 <p></br> Le pom.xml contient le modèle objet pour ce projet. Il contient toutes les informations importantes sur ce projet. Il permet de référencer le groupId, artifactId, version, nom, description, etc. Mais également d'y ajouter des plugins et dépendances pour compiler les ressources du projet permettant d'obtenir le <em>.bat</em> ou encore la possibilité de générer des archives (.zip,.rar) avec un <em>.Jar</em>.</p>
 <ul>
-<li>Dans le POM.XML, l'encondage est définie en UTF-8.</li>
+<li>
+<p>Dans le POM.XML, l'encondage est définie en UTF-8, défini dans <code>properties</code> :</p>
+</li>
+<li>
+<p><img alt="Image not found" src="images/pom.png" title="applciation" /></p>
+</li>
+<li>
+<p>Dans le POM.XML, la version de Java, définie dans <code>dependencies</code> :</p>
+</li>
+<li>
+<p><img alt="Image not found" src="images/pom2.png" title="applciation" /></p>
+</li>
+<li>
+<p>Ce plugin permet de générer automatiquement la distribution binaire du projet, dans le dossier <em>scripts</em> à la racine du projet. Cette génération est fixée à l'étape package de <code>Maven</code>.</p>
+</li>
+<li>
+<p><img alt="Image not found" src="images/pom3.png" title="applciation" /></p>
+</li>
 </ul>
               
             </div>

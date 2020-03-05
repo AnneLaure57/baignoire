@@ -12,7 +12,7 @@ Le premier slider (barre graduée) permet de définir le volume initiale contenu
 
 ### 2) Lancement du test :
 
-Vous pouvez choisir d'initier le taux de fuite et le taux de remplissage avant de cliquer sur le bouton démarrer ou après.
+Vous pouvez choisir d'initier le taux de fuite et le taux de remplissage avant de cliquer sur le bouton démarrer (possible après).
 
 ####Jauge de remplissage :
 

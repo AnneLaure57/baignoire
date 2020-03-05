@@ -1,6 +1,23 @@
 #Éxécuter l'application 
 
-Pour executer le programme, il faut : 
+##Pré-requis
+
+Pour pouvoir utiliser cette application, que vous soyez sur Linux, MAC OS ou Windows, vous devez installer ou posséder <a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html">JAVA JDK8</a>.
+
+##Distribution source
+Il faut télécharger la distrubution source qui a été déposé sur Arche `TP2-CHARLES-0.0.1-SNAPSHOT-project.zip.`
+
+Voici l'arborescence du projet, une fois dézippé :
+
+</br>![Image not found](images/config.png "install")
+
+###Arborescence
+
+* `scripts/bin` : contient les fichiers exécutables (distribution binaire) ;
+
+* `src/main/java/fr/ul/miage/` : contient le code Java (voir Manuel technique).
+
+###Executer le programme
 
 * Lancer un utilitaire de commandes :
 	* Sous Windows : une invite de commandes

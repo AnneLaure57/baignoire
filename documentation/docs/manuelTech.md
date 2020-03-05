@@ -130,10 +130,34 @@ La classe possède un constructeur avec en paramètre, un objet de la classe bai
 
 ## Baignoire.fxml 
 
-</br> Contient tous les éléments de la fenêtre (progressBar, Button, Text, Slider), avec leurs id fxml, leurs positions, les noms et les actions (onAction pour le bouton *Démarrer*).
+</br> Il s'agit d'une fenêtre *.fmxl* crée à partir du logiciel **SceneBuilder** depuis **Eclipse**.
+
+</br>![Image not found](images/scene.png "applciation")
+
+Les différents éléments de l'interface :
+
+* Button `start` : permet de lancer le remplissage de la baignoire.
+* ProgressBar `progB` : barre de progression du remplissage de la baignoire.
+* Slider `vol` : permet de définir le volume à remplir de la baignoire.
+* Slider `vider` : permet de vider la baignoire (de définir la quantité d'eau à remplir dans la baignoire).
+* Slider `remplir` : permet de remplir la baignoire (de définir la quantité d'eau à remplir dans la baignoire).
+* Text `time` : permet d'avoir le chronomètre.
+* Text `res` : permet d'avoir le chronomètre final (message résultat).
+* Text `txtR` : permet d'avoir la quantité d'eau ajoutée.
+* Text `txtV` : permet d'avoir la quantité d'eau retirée.
 
 ## Le POM XML 
 
 </br> Le pom.xml contient le modèle objet pour ce projet. Il contient toutes les informations importantes sur ce projet. Il permet de référencer le groupId, artifactId, version, nom, description, etc. Mais également d'y ajouter des plugins et dépendances pour compiler les ressources du projet permettant d'obtenir le *.bat* ou encore la possibilité de générer des archives (.zip,.rar) avec un *.Jar*.
 
-* Dans le POM.XML, l'encondage est définie en UTF-8.
+* Dans le POM.XML, l'encondage est définie en UTF-8, défini dans `properties` :
+
+* ![Image not found](images/pom.png "applciation")
+
+* Dans le POM.XML, la version de Java, définie dans `dependencies` :
+
+* ![Image not found](images/pom2.png "applciation")
+
+* Ce plugin permet de générer automatiquement la distribution binaire du projet, dans le dossier *scripts* à la racine du projet. Cette génération est fixée à l'étape package de `Maven`.
+
+* ![Image not found](images/pom3.png "applciation")
