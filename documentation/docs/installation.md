@@ -9,7 +9,7 @@ Il faut télécharger la distrubution source qui a été déposé sur Arche `TP2
 
 Voici l'arborescence du projet, une fois dézippé :
 
-</br>![Image not found](images/config.png "install")
+</br>![Image not found](images/conf.png "install")
 
 ###Arborescence
 
@@ -42,11 +42,19 @@ Vous pouvez également (marche en tout cas sur Windows), double-cliquez sur le f
 
 ### Sur Linux/Mac OS:
 
-</br>![Image not found](images/install3.png "install")
+#### Exécuter le fichier app avec la commande `sh`
+</br>![Image not found](images/install5.png "install")
 
 Ouverture de l'application :
 
 </br>![Image not found](images/install4.png "install")
+
+#### Exécuter le .jar 
+</br>![Image not found](images/install3.png "install")
+
+Ouverture de l'application :
+
+</br>![Image not found](images/install6.png "install")
 
 ## En cas de problème :
 
